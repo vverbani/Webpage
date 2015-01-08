@@ -1,0 +1,55 @@
+--------------
+show databases
+--------------
+
+Database
+information_schema
+mysql
+performance_schema
+vetdb
+vverbaniadb
+--------------
+drop database if exists vverbaniadb
+--------------
+
+--------------
+create database vverbaniadb
+--------------
+
+--------------
+show tables
+--------------
+
+--------------
+create table course (courseNumber VARCHAR(6), courseName VARCHAR(30),PRIMARY KEY(courseNumber))
+--------------
+
+--------------
+create table instructor(firstName VARCHAR(30), lastName VARCHAR(30),westernUserId VARCHAR(8) NOT NULL,PRIMARY KEY(westernUserId))
+--------------
+
+--------------
+create table assistant (firstName VARCHAR(30), lastName VARCHAR(30), studentNumber CHAR(9) NOT NULL,westernUserId VARCHAR(8) NOT NULL,type VARCHAR(20),image VARCHAR(20)
+,headSupervisor VARCHAR(30), PRIMARY KEY (WesternUserid),foreign key (headSupervisor) references instructor(westernUserId))
+--------------
+
+--------------
+create table ta_SuperVisor(taWID VARCHAR(8),instructWId VARCHAR(8), primary key (taWId,instructWId), foreign key ( taWID) references assistant (westernUserId), foreign
+key (instructWID) references instructor (westernUserId))
+--------------
+
+--------------
+create table ta_Course(westernUserId VARCHAR(8),courseNumber VARCHAR(6),year INT ,term VARCHAR(6),studentCount INT, PRIMARY Key(westernUserId,courseNumber), foreign key
+ (westernUserId) references assistant (westernUserId), foreign key (courseNumber) references course (courseNumber))
+--------------
+
+--------------
+show tables
+--------------
+
+Tables_in_vverbaniadb
+assistant
+course
+instructor
+ta_Course
+ta_SuperVisor

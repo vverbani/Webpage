@@ -1,0 +1,19 @@
+use vverbaniadb;
+
+create view assignedTas as select T.firstName as TAFirstName, T.lastName as TALastName, X.courseNumber,X.term,X.year
+from assistant as T, ta_Course as X
+where T.westernUserId = X.westernUserId;
+select * from assignedTas;
+
+select * from instructor;
+delete from instructor where firstName = 'Hanan';
+select * from instructor;
+
+select * from assistant;
+delete from assistant where westernUserId = 'mburns';
+select * from assistant;
+
+delete from instructor where westernUserId = 'dvancise';
+select * from instructor;
+
+

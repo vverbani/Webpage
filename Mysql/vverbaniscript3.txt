@@ -1,0 +1,21 @@
+use vverbaniadb;
+
+select firstName from instructor;
+select firstName,lastName from assistant where headSupervisor = 'mbauer';
+select firstName,lastName,type from assistant WHERE type = "PhD" Order By firstName;
+select * from course where courseNumber like '%CS2%';
+
+select assistant.firstName,course.courseName from assistant,ta_Course,course where ta_Course.term = 'fall' and ta_Course.westernUserId = assistant.westernUserId and course.courseNumber = ta_Course.courseNumber;
+
+select assistant.firstName,instructor.firstName,instructor.lastName from assistant,instructor where assistant.headSupervisor = instructor.westernUserId;
+
+select instructor.firstName,instructor.lastName from ta_SuperVisor,instructor,assistant
+where assistant.studentNumber = ta_SuperVisor.studentNumber and ta_SuperVisor.westernUserId = instructor.westernUserId and assistant.headSuperVisor IS NULL;
+select count(*) from assistant where type = 'PhD';
+select course.courseNumber, course.courseName,assistant.firstName,assistant.lastName
+from course,assistant,ta_course
+where course.year = '1';
+select courseName, count(*) from course group by courseName;
+select year,count(*)as tas from ta_course group by year having count(*) < 5;
+
+

@@ -1,0 +1,88 @@
+	--------------
+select firstName from instructor
+--------------
+
+firstName
+Bob
+Charles
+Doug
+John
+Lauara
+Mike
+Mark
+Mike
+Marc
+Mark
+Nazim
+Sylvia
+Valmir
+--------------
+select firstName,lastName from assistant where headSupervisor = "mbauer"
+--------------
+
+--------------
+select firstName,lastName,type from assistant where type = "PhD" Order By firstName
+--------------
+
+firstName       lastName        type
+Lisa    Simpson PhD
+Maggie  Simpson PhD
+Monty   Burns   PhD
+Ned     Flanders        PhD
+Waylan  Smithers        PhD
+--------------
+select * from course where courseNumber like '%CS2%'
+--------------
+
+courseNumber    courseName
+CS2208  Computer Organization
+Cs2209  Logic
+CS2210  Data Structures
+Cs2211  Software Tools
+CS2212  Intro to Software Engineering
+--------------
+select assistant.firstName,course.courseName from assistant,ta_Course,course where ta_Course.term = 'fall' and ta_Course.westernUserId = assistant.westernUserId and cou
+rse.courseNumber = ta_Course.courseNumber
+--------------
+
+firstName       courseName
+Homer   Multimedia and Communications
+Lisa    Intro to Programming
+Lisa    Multimedia and Communications
+Monty   Intro To Databases
+Maggie  Intro to Programming
+Marge   Multimedia and Communications
+Ned     Multimedia and Communications
+Rod     Multimedia and Communications
+--------------
+select assistant.firstName,instructor.firstName,instructor.lastName from assistant,instructor where assistant.headSupervisor = instructor.westernUserId
+--------------
+
+firstName       firstName       lastName
+bugs    Mark    Perry
+Homer   Lauara  Reid
+Lisa    Lauara  Reid
+Monty   Doug    Vancise
+Maggie  Lauara  Reid
+Marge   Marc    Moreno Maza
+Ned     Mike    Katchabaw
+Rod     Mark    Perry
+Waylan  Mark    Perry
+--------------
+select count(*) from assistant where type = 'PhD'
+--------------
+
+count(*)
+5
+--------------
+select ta_Course.year, count(*) from course,ta_Course,assistant where ta_Course.courseNumber = course.courseNumber and assistant.westernUserId = ta_Course.westernUserId
+ group by ta_Course.year
+--------------
+
+year    count(*)
+2013    6
+2014    8
+--------------
+select instructor.firstName,instructor.lastName from ta_SuperVisor,instructor,assistant
+where assistant.westernUserId = ta_SuperVisor.taWID and ta_SuperVisor.instructWId = instructor.westernUserId and assistant.headSupervisor IS NULL
+--------------

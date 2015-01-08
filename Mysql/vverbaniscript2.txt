@@ -1,0 +1,62 @@
+use vverbaniadb;
+load data infile '/tmp/fall2014data.txt' into table instructor fields terminated by ',' LINES TERMINATED BY '\r\n';
+select * from instructor;
+
+insert into assistant (firstName,lastName,studentNumber,westernUserId,type,headSupervisor) values ("Homer","Simpson",250011111,"hsimpson","Masters","lreid2");
+insert into assistant (firstName,lastName,studentNumber,westernUserId,type,headSupervisor) values ("Marge","Simpson",250011112,"msimpson","Masters","mmm");
+insert into assistant (firstName,lastName,studentNumber,westernUserId,type,headSupervisor) values ("Lisa","Simpson",25001113,"lsimpson","PhD", "lreid2");
+insert into assistant (firstName,lastName,studentNumber,westernUserId,type,headSupervisor) values ("Maggie","Simpson",250011114,"msimpso1","PhD","lreid2");
+insert into assistant (firstName,lastName,studentNumber,westernUserId,type,headSupervisor) values ("Ned","Flanders",250000666,"nflander","PhD","mkatchab");
+insert into assistant (firstName,lastName,studentNumber,westernUserId,type,headSupervisor) values ("Todd","Flanders",250000667,"tflander","Masters","mbauer");
+insert into assistant (firstName,lastName,studentNumber,westernUserId,type,headSupervisor) values ("Monty","Burns",250000001,"mburns","PhD","dvancise");
+insert into assistant (firstName,lastName,studentNumber,westernUserId,type,headSupervisor) values ("Waylan","Smithers",250022222,"wsmither","PhD","mbauer");
+insert into assistant (firstName,lastName,studentNumber,westernUserId,type,headSupervisor) values ("bugs","bunny",250695712,"bbunny","Masters","mbauer");
+select * from  assistant;
+
+insert into course (courseNumber, courseName) values ("CS1016","Intro to Programming");
+insert into course (courseNumber, courseName) values ("CS1033","Multimedia and Communications");
+insert into course (courseNumber, courseName) values ("CS1032","Info Systems and Design");
+insert into course (courseNumber, courseName) values ("CS2212","Intro to Software Engineering");
+insert into course (courseNumber, courseName) values ("CS3319","Intro To Databases");
+insert into course (courseNumber, courseName) values ("CS4411","Advanced Databases");
+insert into course (courseNumber, courseName) values ("CS2210","Data Structures");
+insert into course (courseNumber, courseName) values ("CS2208","Computer Organization");
+insert into course (courseNumber, courseName) values ("Cs2209","Logic");
+insert into course (courseNumber, courseName) values ("Cs2211","Software Tools");
+insert into course (courseNumber, courseName) values ("Cs3357","Networks");
+select * from course;
+
+insert into ta_SuperVisor(taWID,instructWID) values ("hsimpson","mdaley");
+insert into ta_SuperVisor(taWID,instructWID) values ("hsimpson","mbauer");
+insert into ta_SuperVisor(taWID,instructWID) values ("mburns","mdaley");
+insert into ta_SuperVisor(taWID,instructWID) values ("mburns","dvan");
+
+insert into ta_SuperVisor(taWID,instructWID) values ("msimpso1","mbauer");
+insert into ta_SuperVisor(taWID,instructWID) values ("msimpso1","sosborn");
+
+insert into ta_SuperVisor(taWID,instructWID) values ("lsimpson","lreid2");
+
+select * from ta_SuperVisor;
+
+insert into ta_Course(westernUserID,courseNumber,year,term) values ("hsimpson","CS1033",2014,"fall");
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("tflander","CS1033",2014,"fall");
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("msimpson","CS1033",2014,"fall");
+
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("hsimpson","CS3357",2013,"spring");
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("tflander","CS3357",2013,"spring");
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("wsmither","CS3357",2013,"spring");
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("mburns","CS3357",2013,"spring");
+
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("nflander","CS1033",2013,"fall");
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("lsimpson","CS1033",2013,"fall");
+
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("mburns","CS3319",2014,"fall");
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("lsimpson","CS1026",2014,"fall");
+insert into ta_Course(westernUserId,courseNumber,year,term) values ("msimpso1","CS1026",2014,"fall");
+
+select * from ta_Course;
+
+select * from assistant;
+update assistant set firstName = "Rod" where firstName = "Todd";
+select * from assistant;
+
