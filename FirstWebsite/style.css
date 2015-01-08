@@ -1,0 +1,26 @@
+.header{
+	font-family: verdana;
+	font-style: normal;
+	background-color:#330033;
+	color:white;
+	height:110px;
+}
+
+.body{
+	background-color:#E6E6FA;
+	height:70%;
+	width:70%;
+	background-position: fixed;
+	background-color: fixed;
+	float:right;
+}
+.footer{
+	font-family: verdana;
+	font-style: normal;
+	width: 100%;
+	height: 10%;
+	background-color: #330033;
+	color : white;
+	position: fixed;
+	bottom: 0px;
+}
