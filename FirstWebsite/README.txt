@@ -1,5 +1,1 @@
--Also very basic website
--not very user friendly
--was created in less than 2 days due to the time constrictions during the semester
--first time using HTML,CSS,PHP,MYSQL all together
--focused more on functionality
+- Functionality > appearance
