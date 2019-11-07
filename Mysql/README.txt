@@ -1,5 +1,3 @@
--First time learning/working with MySql
--very basic
 -create tables
 	-adding,deleting,modifying 
 -for each script; e.g vverbaniscript1 there is also an output of the results
